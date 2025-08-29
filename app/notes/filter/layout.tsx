@@ -8,7 +8,7 @@ interface LayoutNotesProps {
 const LayoutNotes = ({ children, sidebar }: LayoutNotesProps) => {
     
     return (
-        <section>
+        <section className={css.container}>
             <aside className={css.sidebar}>{ sidebar}</aside>
             <div className={css.notesWrapper}>{children}</div>
         </section>

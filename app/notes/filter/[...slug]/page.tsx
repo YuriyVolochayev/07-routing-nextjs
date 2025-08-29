@@ -11,7 +11,7 @@ type Props = {
 export default async function App({params}: Props) {
     const queryClient = new QueryClient();
     const {slug} = await params;
-    const tag = slug[0] === "ALL" ? undefined : slug[0];
+    const tag = slug[0] === "All" ? undefined : slug[0];
 
     await queryClient.prefetchQuery({
         queryKey: ["notes", { query: "", page: 1, tag: tag }],

@@ -7,4 +7,4 @@ export interface Note {
     tag: Tags,
 }
 
-// export type Tags = 'Work' | 'Personal' | 'Meeting' | 'Shopping' | 'Todo';
+export type Tags = 'Work' | 'Personal' | 'Meeting' | 'Shopping' | 'Todo';

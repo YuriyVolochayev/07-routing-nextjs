@@ -4,7 +4,7 @@ import css from "@/components/TagsMenu/TagsMenu.module.css"
 import { useState } from "react"
 import Link from "next/link"
 
-const tags = [ "Todo", "Work",  "Personal", "Meeting", "Shopping"] as const
+const tags: string[] = ["Todo", "Work", "Personal", "Meeting", "Shopping"]
 
 const TagsMenu = () => {
 
@@ -20,7 +20,7 @@ const TagsMenu = () => {
               All
             </Link>
           </li>
-          {tags.map(tag => (<li className={css.menuItem} key={tag}>
+          {tags.map(tag => (<li className={css.menuItem} key={typeof tag === 'string' ? tag : tag}>
             <Link href={`/notes/filter/${tag}`} className={css.menuLink} onClick={() => setIsOpen(false)}>
               {tag}
             </Link>

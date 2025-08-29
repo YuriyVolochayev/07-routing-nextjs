@@ -1,6 +1,6 @@
 "use client"
 
-import css from "@/app/notes/Notes.module.css"
+import css from "@/app/notes/filter/[...slug]/Notes.module.css"
 import { useState } from 'react'
 import { useQuery, keepPreviousData } from '@tanstack/react-query'
 import NoteList from "@/components/NoteList/NoteList"
@@ -12,11 +12,15 @@ import NoteForm from "@/components/NoteForm/NoteForm"
 import { Toaster } from 'react-hot-toast'
 import SearchBox from "@/components/SearchBox/SearchBox"
 
-const NotesClient = () => {
+type NotesClientProps = {
+    tag?: string;
+};
+
+const NotesClient = ({tag}: NotesClientProps) => {
     const [page, setPage] = useState<number>(1)
     const [query, setQuery] = useState<string>("")
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-    const [debouncedQuery] = useDebounce(query, 400)
+    const [debouncedQuery] = useDebounce(query, 300)
 
     const {
         data: notes,

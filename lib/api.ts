@@ -4,14 +4,12 @@ import type { Note } from "@/types/note"
 axios.defaults.baseURL = 'https://notehub-public.goit.study/api';
 axios.defaults.headers["Authorization"] = `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`
 
-type Tags = "Work" | "Personal" | "Meeting" | "Shopping" | "Todo" | undefined
-
 interface FetchNotesResponse {
     notes: Note[]
     totalPages: number
 }
 
-export const fetchNotes = async (search: string, page: number = 1, perPage: number = 12, tag?: Tags) => {
+export const fetchNotes = async (search: string, page: number = 1, perPage: number = 12, tag?: string) => {
 
     const response = await axios<FetchNotesResponse>("/notes", {
         params: {
